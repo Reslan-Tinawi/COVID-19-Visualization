@@ -1,2 +1,17 @@
 # COVID-19-Visualization
-Visualization of the novel corona virus
+
+This repository contains two notebooks created with `jupyter lab` for visualizing the COVID-19 data.
+
+The notebooks are:
+
+- `COVID-19 Reports Data`: this notebook contains visualization of the Reports data.
+
+- `COVID-19 Time Series Data`: this notebook contains visualization of the Time Series data.
+
+The visualizations are made with `plotly`, for running the jupyter lab, some packages need to be installed: [Plotly JupyterLab Support](https://github.com/plotly/plotly.py#jupyterlab-support-python-35)
+
+These extensions were used in creating the notebooks:
+
+- [jupyterlab-toc](https://github.com/jupyterlab/jupyterlab-toc): A Table of Contents extension for JupyterLab.
+
+- [Collapsible Headings](https://github.com/aquirdTurtle/Collapsible_Headings): Implements Collapsible Headers for Jupyter Lab Notebooks.
