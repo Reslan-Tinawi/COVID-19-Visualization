@@ -72,7 +72,7 @@ def data_preprocessing(confirmed_global_df, deaths_global_df, recovered_global_d
     confirmed_us_df = rename_columns(confirmed_us_df, columns_mapping)
     deaths_us_df = rename_columns(deaths_us_df, columns_mapping)
 
-    # 3 - Drop State column from the global data:
+    # 3 - Drop `State` column from the global data:
     confirmed_global_df = drop_irrelevant_columns(confirmed_global_df, 'State')
     deaths_global_df = drop_irrelevant_columns(deaths_global_df, 'State')
     recovered_global_df = drop_irrelevant_columns(recovered_global_df, 'State')
@@ -90,6 +90,7 @@ def data_preprocessing(confirmed_global_df, deaths_global_df, recovered_global_d
     confirmed_us_agg_df = apply_aggregation(confirmed_us_df, by_columns)
     deaths_us_agg_df = apply_aggregation(deaths_us_df, by_columns)
 
+    # drop `Population` column
     confirmed_us_agg_df = drop_irrelevant_columns(
         confirmed_us_agg_df, ['Population'])
     deaths_us_agg_df = drop_irrelevant_columns(
@@ -121,6 +122,29 @@ def data_preprocessing(confirmed_global_df, deaths_global_df, recovered_global_d
     # U.S. data
     confirmed_us_time_series = pd.concat(confirmed_us_date_frames)
     deaths_us_time_series = pd.concat(deaths_us_date_frames)
+
+    # 6 - Convert type of column `date` to date, and sort time series by date
+
+    # convert column type
+    # global data
+    confirmed_global_time_series['date'] = pd.to_datetime(confirmed_global_time_series['date'])
+    deaths_global_time_series['date'] = pd.to_datetime(deaths_global_time_series['date'])
+    recovered_global_time_series['date'] = pd.to_datetime(recovered_global_time_series['date'])
+
+    # U.S. data
+    confirmed_us_time_series['date'] = pd.to_datetime(confirmed_us_time_series['date'])
+    deaths_us_time_series['date'] = pd.to_datetime(deaths_us_time_series['date'])
+
+    # sort by `date` column
+
+    # global data
+    confirmed_global_time_series.sort_values(by='date', inplace=True)
+    deaths_global_time_series.sort_values(by='date', inplace=True)
+    recovered_global_time_series.sort_values(by='date', inplace=True)
+
+    # U.S. data
+    confirmed_us_time_series.sort_values(by='date', inplace=True)
+    deaths_us_time_series.sort_values(by='date', inplace=True)
 
     return confirmed_global_time_series, deaths_global_time_series, recovered_global_time_series,\
         confirmed_us_time_series, deaths_us_time_series
