@@ -96,7 +96,7 @@ def data_preprocessing(confirmed_global_df, deaths_global_df, recovered_global_d
     deaths_us_agg_df = drop_irrelevant_columns(
         deaths_us_agg_df, ['Population'])
 
-    # 5 - Restructe the Data:
+    # 5 - Restructure the Data:
     date_columns = confirmed_global_agg_df.filter(
         regex='\d{1,2}/\d{1,2}/\d{1,4}').columns.values
 
