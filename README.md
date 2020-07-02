@@ -15,3 +15,5 @@ The following extensions were used in creating the notebooks:
 - [jupyterlab-toc](https://github.com/jupyterlab/jupyterlab-toc): A Table of Contents extension for JupyterLab.
 
 - [Collapsible Headings](https://github.com/aquirdTurtle/Collapsible_Headings): Implements Collapsible Headers for Jupyter Lab Notebooks.
+
+The accompanying blog post for this repository: [COVID-19 Interactive Visualization ](https://reslan-tinawi.github.io/2020/06/06/covid-19-visualization.html)
